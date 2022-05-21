@@ -12,6 +12,13 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 10f;
     public float finalSpeed;
 
+    public float jumpPower = 10f;
+    private float gravity = -9.81f;
+
+    private Rigidbody rb;
+
+    private Vector3 moveDirection;
+
     public bool toggleCameraRotation;
     public bool isRun;
     public bool isForward;
@@ -24,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        moveDirection = Vector3.zero;
+
+        rb = GetComponent<Rigidbody>();
+
         _animator = GetComponent<Animator>();
         _camera = Camera.main;
         _controller = GetComponent<CharacterController>();
@@ -33,6 +44,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+
+        
+        moveDirection = right * Input.GetAxisRaw("Horizontal") + forward * Input.GetAxisRaw("Vertical");
+
+
         // 둘러보기 (Left Alt)
         if (Input.GetKey(KeyCode.LeftAlt))
         {
@@ -93,6 +111,27 @@ public class PlayerMovement : MonoBehaviour
             isRight = false;
         }
 
+        // 마우스 왼쪽 클릭
+        if (Input.GetMouseButtonDown(0))
+        {
+            _animator.Play("RightHand@Attack01", -1);
+            
+        }
+
+        // 점프 (Space)
+        if (Input.GetKey(KeyCode.Space) && _controller.isGrounded == true)
+        {
+            moveDirection.y = jumpPower;
+        }
+
+        // 캐릭터가 공중에 있을 때 중력 적용
+        if (_controller.transform.position.y > 1 )
+        {
+            moveDirection.y += gravity * Time.deltaTime;
+        }
+
+        _controller.Move(moveDirection * finalSpeed * Time.deltaTime);
+
         InputMovement();
 
     }
@@ -107,18 +146,14 @@ public class PlayerMovement : MonoBehaviour
     void InputMovement()
     {
         finalSpeed = (isRun) ? runSpeed : speed;
-
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
-
-        Vector3 moveDirection = forward * Input.GetAxisRaw("Vertical") + right * Input.GetAxisRaw("Horizontal");
-
-        _controller.Move(moveDirection.normalized * finalSpeed * Time.deltaTime);
-
         float percent = ((isRun) ? 1 : 0.5f) * moveDirection.magnitude;
-
         _animator.SetFloat("finalSpeed", percent, 0.1f, Time.deltaTime);
 
+        setBools();
+    }
+
+    void setBools()
+    {
         if (isForward == true)
         {
             _animator.SetBool("isForward", true);
@@ -154,6 +189,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetBool("isRight", false);
         }
-
     }
+
+
 }
