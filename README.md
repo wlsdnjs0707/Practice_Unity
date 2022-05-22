@@ -1,13 +1,4 @@
-# Practice_Unity
-Survival Game using Unity Engine
-
-## - 사용한 에셋
-- 맵, 캐릭터 컨트롤러: Starter Assets - Third Person Character Controller (https://assetstore.unity.com/packages/essentials/starter-assets-third-person-character-controller-196526)
-- 플레이어 모델: Contract Killer (https://assetstore.unity.com/packages/3d/characters/humanoids/humans/contract-killer-29235)
-- 몬스터 모델: Zombie (https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232)
-
-
-## 서바이벌 게임
+# 서바이벌 게임
 <img src="https://user-images.githubusercontent.com/86781939/169697515-5e0ed0e3-e5bd-4206-87cf-99b3e492944a.png"  width="1000" height="600" >
 
 
@@ -58,3 +49,10 @@ Survival Game using Unity Engine
   timeText.text = "You Win!";
   Time.timeScale = 0;
   ```
+  
+  
+## - 사용한 에셋
+  - 맵, 캐릭터 컨트롤러: Starter Assets - Third Person Character Controller (https://assetstore.unity.com/packages/essentials/starter-assets-third-person-character-controller-196526)
+  - 플레이어 모델: Contract Killer (https://assetstore.unity.com/packages/3d/characters/humanoids/humans/contract-killer-29235)
+  - 몬스터 모델: Zombie (https://assetstore.unity.com/packages/3d/characters/humanoids/zombie-30232)
+
