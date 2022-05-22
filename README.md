@@ -1,6 +1,6 @@
 # 서바이벌 게임
 <img src="https://user-images.githubusercontent.com/86781939/169697515-5e0ed0e3-e5bd-4206-87cf-99b3e492944a.png"  width="1000" height="600" >
-
+<br><br>
 
 ## # 주요 기능
 
@@ -11,7 +11,7 @@
   - 점프 (스페이스바)
   - 3인칭 카메라 뷰 회전
   - 이동, 달리기 애니메이션 연결
-
+<br><br>
 
 ### **2. 몬스터 세팅**
 <img src="https://user-images.githubusercontent.com/86781939/169697494-6e6fc981-be8a-4c9a-902a-ea6a95e79048.PNG"  width="1000" height="600" >
@@ -24,7 +24,7 @@
   ```
 
   - 이동 애니메이션 연결
-
+<br><br>
   
 ### **3. 승리, 패배 조건**
 <img src="https://user-images.githubusercontent.com/86781939/169697736-64c52722-6d7f-45c4-b73b-39bf7e60020f.PNG"  width="1000" height="600" >
@@ -49,8 +49,13 @@
   timeText.text = "You Win!";
   Time.timeScale = 0;
   ```
-  
-  
+<br><br>
+### **수정할 사항**
+빌드 후 exe파일 실행 시 텍스트가 출력되지 않음 <br>
+승리, 패배 이벤트는 그대로 수행되긴 함 (타이머-15초)
+<br><br>
+
+
 ## - 사용한 에셋
   - 맵, 캐릭터 컨트롤러: Starter Assets - Third Person Character Controller (https://assetstore.unity.com/packages/essentials/starter-assets-third-person-character-controller-196526)
   - 플레이어 모델: Contract Killer (https://assetstore.unity.com/packages/3d/characters/humanoids/humans/contract-killer-29235)
