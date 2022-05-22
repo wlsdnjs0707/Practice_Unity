@@ -49,12 +49,11 @@
   timeText.text = "You Win!";
   Time.timeScale = 0;
   ```
-<br><br>
-### **수정할 사항**
+<br>
+### **+ 수정할 사항**
 빌드 후 exe파일 실행 시 텍스트가 출력되지 않음 <br>
 승리, 패배 이벤트는 그대로 수행되긴 함 (타이머-15초)
 <br><br>
-
 
 ## - 사용한 에셋
   - 맵, 캐릭터 컨트롤러: Starter Assets - Third Person Character Controller (https://assetstore.unity.com/packages/essentials/starter-assets-third-person-character-controller-196526)
